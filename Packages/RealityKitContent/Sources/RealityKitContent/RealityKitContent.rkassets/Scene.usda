@@ -1,0 +1,29 @@
+#usda 1.0
+(
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["GridMaterial", "Sphere"]
+    rel material:binding = None (
+        bindMaterialAs = "weakerThanDescendants"
+    )
+
+    def "board" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0.17453298, 0.43633237, 8.220807e-9)
+        }
+        references = @Objects/board.usdz@
+    )
+    {
+        quatf xformOp:orient = (0.97258085, 0.08508982, 0.21561602, -0.018863957)
+        float3 xformOp:scale = (0.45, 0.45, 0.45)
+        float3 xformOp:translate = (0.00031044215, 0, 0.009347007)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+
